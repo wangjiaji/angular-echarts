@@ -135,7 +135,8 @@
                 width: 600,
                 height: 450,
                 map: {
-                    mapType: 'china',
+                    type: 'map',
+                    map: 'china',
                     selectedMode: 'single',
                     itemStyle:{
                         normal:{label:{show:true}},
@@ -143,13 +144,13 @@
                     }
                 },
                 event: {
-                    type: echarts.config.EVENT.MAP_SELECTED,
+                    type: 'mapselected',
                     fn: detail
                 }
 
             },
             province: {
-
+                type: 'map'
             }
         };
 
@@ -172,8 +173,8 @@
                 $scope.config.province = {
                     //debug: true,
                     map: {
-                        mapType: selectedProvince[0],
-                        selectedMode: 'single',
+                        map: selectedProvince[0],
+                        //selectedMode: 'single',
                         itemStyle:{
                             normal:{label:{show:true}},
                             emphasis:{label:{show:true}}

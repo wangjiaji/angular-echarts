@@ -3,6 +3,8 @@
 var gulp    = require('gulp');
 var plugins = require('gulp-load-plugins')();
 var browserSync = require('browser-sync');
+var vinylPaths = require('vinyl-paths');
+var del = require('del');
 
 /**
  * Run a webserver (with LiveReload)
@@ -45,7 +47,7 @@ gulp.task('build', function () {
 
     // cleanup previous builds
     gulp.src('dist/*.js', {read: false})
-        .pipe(plugins.clean());
+        .pipe(vinylPaths(del));
 
     // build js
     gulp.src(['src/directive.js', 'src/util.js', 'src/theme.js', 'src/theme/*.js'])
